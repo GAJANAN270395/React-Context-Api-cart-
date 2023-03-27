@@ -1,9 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './style.css';
 
 const Header = () => {
   return (
     <div>
-      <h1>This is Header.js</h1>
+      <span className="header">React Context Api Project</span>
+      <ul className="nav">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/cart">Cart</Link>
+        </li>
+      </ul>
     </div>
   );
 };
