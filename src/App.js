@@ -1,12 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Header from './components/Header';
+import Cart from './components/Cart';
+import Home from './components/Home';
 
 const App = () => {
   return (
-    <div>
-      <h1>This is App.js </h1>
+    <BrowserRouter>
       <Header />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="cart" element={<Cart/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
