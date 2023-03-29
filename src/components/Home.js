@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SingleProduct from './SingleProduct';
+
 import './style.css';
 import faker from 'faker';
 
@@ -7,12 +8,18 @@ const Home = () => {
   const productArray = [...Array(20)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
+    image: faker.random.image(),
+    price: faker.commerce.price(),
   }));
+  //  console.log(productArray);
+
+  const [products] = useState(productArray);
 
   return (
-    <div>
-      <h1>This is Home.js</h1>
-      <SingleProduct />
+    <div className="productContainer">
+      {products.map((prod) => (
+        <SingleProduct prod={prod} />
+      ))}
     </div>
   );
 };
